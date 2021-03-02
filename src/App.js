@@ -44,17 +44,14 @@ function App() {
     if (autUser) {
       console.log(autUser);
       setUser(autUser);
-      if (autUser.displayName){
-
-      }else{
-        return autUser.updateProfile({
-          displayName: username,
-        });
-      }
     } else {
       setUser(null);
     }
+
     }) 
+    return() =>{
+      unsubscribe();
+    }
     } , [user, username]);
 
   useEffect(() => {
@@ -70,6 +67,11 @@ function App() {
       const signUp =(event) => {
         event.preventDefault();
         auth.createUserWithEmailAndPassword(email, password)
+        .then((authUser) => {
+         return authUser.user.updateProfile({
+            displayName:  username
+          })
+        })
         .catch((error) => alert(error.message));
       }
 
@@ -108,7 +110,12 @@ function App() {
       <div className="app__header">
         <img src= {logo} alt="legit logo"/>
       </div>
-    <Button onClick={() => setOpen(true)}>Sign up </Button>
+      {user ? (
+        <Button onClick={() => auth.signOut()}>Log out</Button>
+      ): (
+        <Button onClick={() => setOpen(true)}>Sign up </Button>
+      )}
+    
 
       <h1>Hello legit app users </h1>
       {
