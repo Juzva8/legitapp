@@ -5,7 +5,7 @@ import './App.css';
 import logo from './Assets/logo_transp.png';
 import Post from './Components/Post/Post';
 import { db } from './firebase'
-import { Button } from '@material-ui/core';
+import { Button, Input } from '@material-ui/core';
 
 
 function getModalStyle() {
@@ -35,7 +35,9 @@ function App() {
 
   const [posts, setPosts] = useState([]); 
   const [open, setOpen] = useState(false);
-
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
 
   useEffect(() => {
 
@@ -47,7 +49,11 @@ function App() {
       })
       }, [])
 
+      const signUp =(event) => {
+        event.preventDefault();
 
+
+      }
   return (
        <div className="app">
            <Modal
@@ -55,26 +61,28 @@ function App() {
         onClose={() => setOpen(false)}
       >
         <div style={modalStyle} className={classes.paper}>
+        <form className="app__signup">
        <center>
       <img className="app__headerImage" src={logo} alt="legit app logo" />
+      </center>
+      <Input
+      placeholder="username"
+      type="text"
+      value={username}
+      onChange={(e) => setUsername(e.target.value)} />
       <Input 
       placeholder="email"
       type="text"
       value={email}
       onChange={(e) => setEmail(e.target.value)} />
-    
-     
       <Input 
       placeholder="password"
       type="password"
       value={password}
       onChange={(e) => setPassword(e.target.value)} />
-
-      
-       </center>
-    
-
-
+      <Button type="submit" onClick={signUp}>Sign up</Button>
+      </form>
+       
     </div>
       </Modal>
    
