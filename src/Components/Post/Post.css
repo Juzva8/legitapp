@@ -1,0 +1,11 @@
+
+
+.Post__image{
+width: 100%;
+object-fit: contain;
+
+}
+.Post__text{
+    font-weight: normal;
+    
+ }
