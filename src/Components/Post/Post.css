@@ -1,11 +1,28 @@
+.post{
+    max-width: 500px;
+    background-color: white;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 45px;
+}
 
-
-.Post__image{
+.post__image{
 width: 100%;
 object-fit: contain;
+border-top: px solid lightgray;
+border-bottom: 1px solid lightgray;
 
 }
-.Post__text{
+.post__text{
     font-weight: normal;
+    padding: 20px;
     
+ }
+ .post__header{
+     display:flex;
+     align-items: center;
+     padding: 20px;
+
+ }
+ .post__avatar{
+     margin-right: 10px;
  }
