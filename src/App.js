@@ -7,6 +7,7 @@ import Post from './Components/Post/Post';
 import { db } from './firebase'
 import { Button } from '@material-ui/core';
 
+
 function getModalStyle() {
   const top = 50;
   const left = 50;
@@ -54,7 +55,26 @@ function App() {
         onClose={() => setOpen(false)}
       >
         <div style={modalStyle} className={classes.paper}>
-          <h2>Modal </h2>
+       <center>
+      <img className="app__headerImage" src={logo} alt="legit app logo" />
+      <Input 
+      placeholder="email"
+      type="text"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)} />
+    
+     
+      <Input 
+      placeholder="password"
+      type="password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)} />
+
+      
+       </center>
+    
+
+
     </div>
       </Modal>
    

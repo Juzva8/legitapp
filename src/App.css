@@ -16,3 +16,8 @@
   background-color: white;
   border-bottom: 1px solid lightgray;
 }
+.app__headerImage{
+  object-fit: contain;
+  height:70px;
+  background-color: white;
+}
