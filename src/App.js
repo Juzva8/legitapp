@@ -58,7 +58,7 @@ function App() {
 
   useEffect(() => {
 
-  db.collection('posts').onSnapshot(snapshot => {
+  db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
     setPosts(snapshot.docs.map(doc => ({
       id: doc.id,
       post: doc.data()
@@ -168,7 +168,6 @@ function App() {
       )}
     
 
-      <h1>Hello legit app users </h1>
       {
         posts.map(({id, post}) => (
           <Post key={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
