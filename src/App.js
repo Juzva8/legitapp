@@ -1,23 +1,23 @@
-
 import './App.css';
+import logo from './Assets/logo_transp.png';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   
+      <div className="app__headerImage">
+        <img src= {logo} alt="legit logo"/>
+      </div>
+
+      <h1>Hello legit app users </h1>
+
+    {/* Header */}
+    {/* Posts */}
+    {/* Posts */}
+    
+
+
     </div>
   );
 }
