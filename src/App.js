@@ -34,6 +34,7 @@ function App() {
   const [modalStyle] = useState(getModalStyle)
   const [posts, setPosts] = useState([]); 
   const [open, setOpen] = useState(false);
+  const [openSignIn, setOpenSignIn] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -75,6 +76,14 @@ function App() {
         .catch((error) => alert(error.message));
       }
 
+      const signIn =(event) => {
+        event.preventDefault();
+        auth
+        .signInWithEmailAndPassword(email, password)
+        .catch((error) => alert(error.message));
+        setOpenSignIn(false);
+      }
+
   return (
        <div className="app">
            <Modal
@@ -106,6 +115,38 @@ function App() {
        
     </div>
       </Modal>
+
+
+
+
+      <Modal
+        open={openSignIn}
+        onClose={() => setOpenSignIn(false)}
+      >
+        <div style={modalStyle} className={classes.paper}>
+        <form className="app__signup">
+       <center>
+      <img className="app__headerImage" src={logo} alt="legit app logo" />
+      </center>
+   
+      <Input 
+      placeholder="email"
+      type="text"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)} />
+      <Input 
+      placeholder="password"
+      type="password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)} />
+      <Button type="submit" onClick={signIn}>Log In</Button>
+      </form>
+       
+    </div>
+      </Modal>
+
+
+
    
       <div className="app__header">
         <img src= {logo} alt="legit logo"/>
@@ -113,7 +154,10 @@ function App() {
       {user ? (
         <Button onClick={() => auth.signOut()}>Log out</Button>
       ): (
+        <div className="app__loginContainer">
+        <Button onClick={() => setOpenSignIn(true)}>Log in</Button>
         <Button onClick={() => setOpen(true)}>Sign up </Button>
+        </div>
       )}
     
 
