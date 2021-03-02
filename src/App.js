@@ -6,6 +6,7 @@ import logo from './Assets/logo_transp.png';
 import Post from './Components/Post/Post';
 import { db, auth } from './firebase'
 import { Button, Input } from '@material-ui/core';
+import ImageUpload from './Components/ImageUpload/ImageUpload';
 
 
 function getModalStyle() {
@@ -86,6 +87,7 @@ function App() {
 
   return (
        <div className="app">
+         <ImageUpload />
            <Modal
         open={open}
         onClose={() => setOpen(false)}
