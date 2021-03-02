@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import './App.css';
 import logo from './Assets/logo_transp.png';
 import Post from './Components/Post/Post';
-import { db } from './firebase'
+import { db, auth } from './firebase'
 import { Button, Input } from '@material-ui/core';
 
 
@@ -32,12 +32,30 @@ const useStyles = makeStyles((theme) =>({
 function App() {
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle)
-
   const [posts, setPosts] = useState([]); 
   const [open, setOpen] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [user, setUser] = useState(null);
+
+    useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((autUser) => {
+    if (autUser) {
+      console.log(autUser);
+      setUser(autUser);
+      if (autUser.displayName){
+
+      }else{
+        return autUser.updateProfile({
+          displayName: username,
+        });
+      }
+    } else {
+      setUser(null);
+    }
+    }) 
+    } , [user, username]);
 
   useEffect(() => {
 
@@ -51,9 +69,10 @@ function App() {
 
       const signUp =(event) => {
         event.preventDefault();
-
-
+        auth.createUserWithEmailAndPassword(email, password)
+        .catch((error) => alert(error.message));
       }
+
   return (
        <div className="app">
            <Modal
