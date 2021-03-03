@@ -162,7 +162,7 @@ function App() {
       }
       </div>   
       <div className="app__postsRight">
-      <iframe 
+      {/* <iframe 
             title="Social app" 
             src="https://cybup.blogspot.com"
             width="440" 
@@ -172,7 +172,7 @@ function App() {
             frameborder="0" 
             allowTransparency="true"  
             allow= "encrypted-media">
-            </iframe>
+            </iframe> */}
       </div>
      </div>
     
