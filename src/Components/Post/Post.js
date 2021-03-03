@@ -51,7 +51,7 @@ function Post({ postId, user, username, caption, imageUrl }) {
             <img className="post__image" src={imageUrl} alt="post"/>
       
             <h4 className="post__text"><strong>{username}</strong> {caption}</h4>
-            {
+            
                 <div className="post__comments">
                     {comments.map((comment) => (
                     <p>
@@ -59,9 +59,10 @@ function Post({ postId, user, username, caption, imageUrl }) {
                     </p>
                     ))}
                     </div> 
-            }
+            
+                {user && (
 
-            <form className="post__commentBox">
+                <form className="post__commentBox">
                 <input 
                 className="post__input"
                 type="text"
@@ -77,8 +78,8 @@ function Post({ postId, user, username, caption, imageUrl }) {
                 >
                     Post
                 </button>
-            </form>
-
+                </form>
+                )}
         </div>
     )
 }
