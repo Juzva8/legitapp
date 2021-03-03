@@ -68,6 +68,7 @@ function App() {
 
       const signUp =(event) => {
         event.preventDefault();
+
         auth.createUserWithEmailAndPassword(email, password)
         .then((authUser) => {
          return authUser.user.updateProfile({
@@ -75,6 +76,7 @@ function App() {
           })
         })
         .catch((error) => alert(error.message));
+        setOpen(false);
       }
 
       const signIn =(event) => {
@@ -162,9 +164,9 @@ function App() {
       }
       </div>   
       <div className="app__postsRight">
-      {/* <iframe 
+      <iframe 
             title="Social app" 
-            src="https://cybup.blogspot.com"
+            src="https://www.newsbreak.com/"
             width="440" 
             height="100%" 
             style={{border: "none", overflow: "hidden" }}
@@ -172,7 +174,7 @@ function App() {
             frameborder="0" 
             allowTransparency="true"  
             allow= "encrypted-media">
-            </iframe> */}
+            </iframe>
       </div>
      </div>
     
@@ -187,3 +189,4 @@ function App() {
 }
 
 export default App;
+
