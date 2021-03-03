@@ -95,6 +95,7 @@ function App() {
       >
         <div style={modalStyle} className={classes.paper}>
         <form className="app__signup">
+        
        <center>
       <img className="app__headerImage" src={logo} alt="legit app logo" />
       </center>
