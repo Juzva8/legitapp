@@ -3,12 +3,21 @@
 }
 .app{
   background-color: #fafafa;
-
+}
+.app__posts{
+  padding: 20px;
+  display: flex;
+  justify-content: center; 
+}
+.app__postsRight{
+margin-left: 30px;
 }
 .app__header > img{
   object-fit: contain;
   height:70px;
   background-color: white;
+  object-fit: contain;
+
 
 }
 .app__header{

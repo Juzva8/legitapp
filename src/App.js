@@ -7,6 +7,7 @@ import Post from './Components/Post/Post';
 import { db, auth } from './firebase'
 import { Button, Input } from '@material-ui/core';
 import ImageUpload from './Components/ImageUpload/ImageUpload';
+import InstagramEmbed from 'react-instagram-embed';
 
 
 function getModalStyle() {
@@ -117,9 +118,6 @@ function App() {
     </div>
       </Modal>
 
-
-
-
       <Modal
         open={openSignIn}
         onClose={() => setOpenSignIn(false)}
@@ -156,12 +154,30 @@ function App() {
         </div>
       )}
       </div>
-     
-      {
+     <div className="app__posts">
+       <div className="app__postsLeft">
+     {
         posts.map(({id, post}) => (
           <Post key={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
         ))
       }
+      </div>   
+      <div className="app__postsRight">
+      <iframe 
+            title="Social app" 
+            src="https://cybup.blogspot.com"
+            width="440" 
+            height="100%" 
+            style={{border: "none", overflow: "hidden" }}
+            scrolling="no" 
+            frameborder="0" 
+            allowTransparency="true"  
+            allow= "encrypted-media">
+            </iframe>
+      </div>
+     </div>
+    
+
         {user?.displayName ? (
           <ImageUpload username={user.displayName} />
          ) : (

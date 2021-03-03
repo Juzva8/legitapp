@@ -1,4 +1,4 @@
-import { Input, Button } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import React, { useState } from 'react'
 import './ImageUpload.css'
 import firebase from 'firebase';
