@@ -145,14 +145,9 @@ function App() {
        
     </div>
       </Modal>
-
-
-
-   
       <div className="app__header">
         <img src= {logo} alt="legit logo"/>
-      </div>
-      {user ? (
+        {user ? (
         <Button onClick={() => auth.signOut()}>Log out</Button>
       ): (
         <div className="app__loginContainer">
@@ -160,8 +155,8 @@ function App() {
         <Button onClick={() => setOpen(true)}>Sign up </Button>
         </div>
       )}
-    
-
+      </div>
+     
       {
         posts.map(({id, post}) => (
           <Post key={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
