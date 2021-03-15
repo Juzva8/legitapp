@@ -39,3 +39,10 @@ margin-left: 30px;
   display: flex;
   flex-direction: column;
 }
+
+@media (max-width:500px){
+  .app__postsRight{
+max-width:20px;
+
+  }
+}
