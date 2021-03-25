@@ -1,8 +1,11 @@
 {
     "cSpell.ignoreWords": [
         "appspot",
+        "firebaseapp",
         "firestore",
+        "imageupload",
         "legitenough",
-        "signup"
+        "signup",
+        "ttfb"
     ]
 }

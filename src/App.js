@@ -167,7 +167,7 @@ function App() {
       <div className="app__postsRight">
       <iframe 
             title="Social app" 
-            src="https://www.newsbreak.com/"
+            src="https://www.newsbreak.com/topics/coronavirus"
             width="440" 
             height="100%" 
             style={{border: "none", overflow: "hidden" }}
