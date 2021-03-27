@@ -4,7 +4,6 @@ import './ImageUpload.css'
 import firebase from 'firebase';
 import { db, storage } from '../../firebase'
 
-
 function ImageUpload({ username }) {
     const [image, setImage] = useState(null)
     const [setProgress] = useState(0)
@@ -58,7 +57,6 @@ function ImageUpload({ username }) {
             alt={username} 
             src="/static/images/avatar/1.jpg"/>
         <form>
-        
         <input type="text" placeholder="Enter a caption" onChange={event => setCaption(event.target.value)} value={caption} />
         <input type="file" onChange={handleChange} />
         <Button onClick={handleUpload}>
